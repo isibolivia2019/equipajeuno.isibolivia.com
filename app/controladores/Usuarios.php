@@ -102,37 +102,20 @@ function autentificacionUsuario(){
     $usuarioModelo = modelo('Usuario');
     $usuario = $usuarioModelo->autentificacionUsuario($datos);
     if(sizeof($usuario) > 0){
-        /*if($usuario[0]["estado_usuario"] == "1"){
-            $_SESSION['tiempoAsigando'] = (60*30);//60 segundos * minutos
-            $_SESSION['tiempoSession'] = time();
-            $_SESSION['codigo']=$usuario[0]['cod_usuario'];
-            $_SESSION['personal']=$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario'];
-            $_SESSION['nombre']=$usuario[0]['nombre_usuario'];
-            $_SESSION['imagen']=$usuario[0]['imagen_usuario'];
-            $_SESSION['cargo']=$usuario[0]['nombre_cargo'];
-            $datos = array($_SESSION['codigo']);
-            $permisos = $usuarioModelo->listaPrivilegiosUsuarios($datos);
+        $datos = array($usuario[0]["cod_usuario"]);
+        $permisos = $usuarioModelo->listaPrivilegiosUsuarios($datos);
 
-            $_SESSION['Permiso_Usuario']=$permisos[0]['itemUsuario'];
-            $_SESSION['Permiso_Cargo']=$permisos[0]['itemCargo'];
-            $_SESSION['Permiso_Horario']=$permisos[0]['itemHorario'];
-            $_SESSION['Permiso_Sueldo']=$permisos[0]['itemSueldo'];
-            $_SESSION['Permiso_Sucursal']=$permisos[0]['itemSucursal'];
-            $_SESSION['Permiso_Almacen']=$permisos[0]['itemAlmacen'];
-            $_SESSION['Permiso_Producto']=$permisos[0]['itemProducto'];
-            $_SESSION['Permiso_Categoria']=$permisos[0]['itemCategoria'];
-            $_SESSION['Permiso_Descuento']=$permisos[0]['itemDescuentoProductos'];
-            $_SESSION['Permiso_Trasnferencia']=$permisos[0]['itemTraspasoProductos'];
-            $_SESSION['Permiso_ProductoPerdido']=$permisos[0]['itemProductosPerdidos'];
-            $_SESSION['Permiso_Venta']=$permisos[0]['itemVentas'];
-            $_SESSION['Permiso_Reporte']=$permisos[0]['itemReportes'];
-            $_SESSION['Permiso_Acceso']=$permisos[0]['itemAccesos'];
-            $_SESSION['Permiso_CajaChica']=$permisos[0]['itemCajaChica'];
-            $_SESSION['Permiso_Cliente']=$permisos[0]['itemCliente'];
-            $_SESSION['Permiso_Configuracion']=$permisos[0]['itemConfiguracion'];
-            $_SESSION['Permiso_Registro']=$permisos[0]['itemRegistro'];
-            $_SESSION['Permiso_Notificacion']=$permisos[0]['itemNotificacion'];
-        }*/
+        $usario[0]['itemUsuario'] = $permisos[0]['itemUsuario'];
+        $usario[0]['itemCliente'] = $permisos[0]['itemCliente'];
+        $usario[0]['itemTarjeta'] = $permisos[0]['itemTarjeta'];
+        $usario[0]['itemReportes'] = $permisos[0]['itemReportes'];
+        $usario[0]['itemRecepcion'] = $permisos[0]['itemRecepcion'];
+        $usario[0]['itemEntrega'] = $permisos[0]['itemEntrega'];
+        $usario[0]['itemEstante'] = $permisos[0]['itemEstante'];
+        $usario[0]['itemGastos'] = $permisos[0]['itemGastos'];
+        $usario[0]['itemAccesos'] = $permisos[0]['itemAccesos'];
+        $usario[0]['itemRegistro'] = $permisos[0]['itemRegistro'];
+        $usario[0]['itemNotificacion'] = $permisos[0]['itemNotificacion'];
     }
     echo json_encode($usuario);
 }

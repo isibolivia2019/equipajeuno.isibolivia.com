@@ -21,6 +21,11 @@ class Usuario{
 		return $this->db->select($sql, $datos);
 	}
 
+	public function listaPrivilegiosUsuarios($datos){
+		$sql = "SELECT * FROM usuario_privilegios WHERE cod_usuario = ?";
+		return $this->db->select($sql, $datos);
+	}
+
 
 
 	
@@ -41,10 +46,7 @@ class Usuario{
 		return $this->db->select($sql, $datos);
 	}
 
-	public function listaPrivilegiosUsuarios($datos){
-		$sql = "SELECT * FROM usuario_privilegios WHERE cod_usuario = ?";
-		return $this->db->select($sql, $datos);
-	}
+	
 
 	public function listaUsuariosRegistro($datos){
 		$sql = "SELECT * FROM usuario WHERE registro = ? and estado = ?";
