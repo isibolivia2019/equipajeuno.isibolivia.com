@@ -105,17 +105,17 @@ function autentificacionUsuario(){
         $datos = array($usuario[0]["cod_usuario"]);
         $permisos = $usuarioModelo->listaPrivilegiosUsuarios($datos);
 
-        $usario[0]['itemUsuario'] = $permisos[0]['itemUsuario'];
-        $usario[0]['itemCliente'] = $permisos[0]['itemCliente'];
-        $usario[0]['itemTarjeta'] = $permisos[0]['itemTarjeta'];
-        $usario[0]['itemReportes'] = $permisos[0]['itemReportes'];
-        $usario[0]['itemRecepcion'] = $permisos[0]['itemRecepcion'];
-        $usario[0]['itemEntrega'] = $permisos[0]['itemEntrega'];
-        $usario[0]['itemEstante'] = $permisos[0]['itemEstante'];
-        $usario[0]['itemGastos'] = $permisos[0]['itemGastos'];
-        $usario[0]['itemAccesos'] = $permisos[0]['itemAccesos'];
-        $usario[0]['itemRegistro'] = $permisos[0]['itemRegistro'];
-        $usario[0]['itemNotificacion'] = $permisos[0]['itemNotificacion'];
+        $usuario[0]['itemUsuario'] = $permisos[0]['itemUsuario'];
+        $usuario[0]['itemCliente'] = $permisos[0]['itemCliente'];
+        $usuario[0]['itemTarjeta'] = $permisos[0]['itemTarjeta'];
+        $usuario[0]['itemReportes'] = $permisos[0]['itemReportes'];
+        $usuario[0]['itemRecepcion'] = $permisos[0]['itemRecepcion'];
+        $usuario[0]['itemEntrega'] = $permisos[0]['itemEntrega'];
+        $usuario[0]['itemEstante'] = $permisos[0]['itemEstante'];
+        $usuario[0]['itemGastos'] = $permisos[0]['itemGastos'];
+        $usuario[0]['itemAccesos'] = $permisos[0]['itemAccesos'];
+        $usuario[0]['itemRegistro'] = $permisos[0]['itemRegistro'];
+        $usuario[0]['itemNotificacion'] = $permisos[0]['itemNotificacion'];
     }
     echo json_encode($usuario);
 }
