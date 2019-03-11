@@ -103,7 +103,7 @@ function autentificacionUsuario(){
     $usuario = $usuarioModelo->autentificacionUsuario($datos);
     if(sizeof($usuario) > 0){
         if($usuario[0]["estado_usuario"] == "1"){
-            $_SESSION['tiempoAsigando'] = (60*30);//60 segundos * minutos
+            /*$_SESSION['tiempoAsigando'] = (60*30);//60 segundos * minutos
             $_SESSION['tiempoSession'] = time();
             $_SESSION['codigo']=$usuario[0]['cod_usuario'];
             $_SESSION['personal']=$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario'];
@@ -131,7 +131,7 @@ function autentificacionUsuario(){
             $_SESSION['Permiso_Cliente']=$permisos[0]['itemCliente'];
             $_SESSION['Permiso_Configuracion']=$permisos[0]['itemConfiguracion'];
             $_SESSION['Permiso_Registro']=$permisos[0]['itemRegistro'];
-            $_SESSION['Permiso_Notificacion']=$permisos[0]['itemNotificacion'];
+            $_SESSION['Permiso_Notificacion']=$permisos[0]['itemNotificacion'];*/
         }
     }
     echo json_encode($usuario);

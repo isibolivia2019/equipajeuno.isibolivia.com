@@ -17,7 +17,7 @@ class Usuario{
 	}
 
 	public function autentificacionUsuario($datos){
-		$sql = "SELECT cod_usuario, nombre, appat, apmat, ci, ci_exp, genero, fec_nac,direccion, telefono, nombre_ref, telefono_ref, tipo_ref, email, pass, imagen, estado FROM usuario WHERE ci = ? and pass = ?;";
+		$sql = "SELECT cod_usuario, nombre, appat, apmat, ci, pass, imagen, estado, registro, notificacion FROM usuario WHERE ci = ? and pass = ?;";
 		return $this->db->select($sql, $datos);
 	}
 
