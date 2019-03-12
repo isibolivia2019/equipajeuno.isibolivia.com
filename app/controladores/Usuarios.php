@@ -10,14 +10,14 @@ if (isset($_POST['action'])) {
         case 'agregarUsuario' :
             agregarUsuario();
             break;
-
-
         case 'autentificacionUsuario' :
             autentificacionUsuario();
             break;
         case 'listaUsuarioEstado' :
             listaUsuarioEstado();
             break;
+
+
         case 'listaUsuarioSinCargo' :
             listaUsuarioSinCargo();
             break;
@@ -87,13 +87,6 @@ function agregarUsuario(){
     echo json_encode($data);
 }
 
-
-
-
-
-
-
-
 function autentificacionUsuario(){
     $usuario = $_POST['usuario'];
     $pass = $_POST['pass'];
@@ -119,6 +112,22 @@ function autentificacionUsuario(){
     }
     echo json_encode($usuario);
 }
+
+function listaUsuarioEstado(){
+    $estado = $_POST['estado'];
+    $datos = array($estado);
+    $modelo = modelo('Usuario');
+    $lista = $modelo->listaUsuarioEstado($datos);
+    echo json_encode($lista);
+}
+
+
+
+
+
+
+
+
 
 function listaUsuarioSinCargo(){
     $datos = array();
