@@ -136,16 +136,6 @@ function listaUsuarioSinCargo(){
     echo json_encode($lista);
 }
 
-function listaUsuarioEstado(){
-    $estado = $_POST['estado'];
-    $datos = array($estado);
-    $modelo = modelo('Usuario');
-    $lista = $modelo->listaUsuarioEstado($datos);
-    $data = array();
-    $data = ['data' => $lista];
-    echo json_encode($data);
-}
-
 function cambiarEstado(){
     $codigo = $_POST['codigo'];
     $estado = $_POST['estado'];
