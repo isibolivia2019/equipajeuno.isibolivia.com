@@ -67,7 +67,7 @@ function agregarUsuario(){
     $data = array();
     $resp = "";
 
-    $datos = array($nombre, $appat, $apmat, $ci, $ci_exp, $genero, $fec_nac, $direccion, $telefono, $nombreRef, $telefonoRef, $tipoRef, $email, $pass, "sin_imagen_usuario.jpg", $estado, $registro, $notificacion);
+    $datos = array($nombre, $appat, $apmat, $ci, $ci_exp, $genero, $fec_nac, $direccion, $telefono, $nombreRef, $telefonoRef, $tipoRef, $email, $pass, "sin_imagen.jpg", $estado, $registro, $notificacion);
     $modelo = modelo('Usuario');
     $resp = $modelo->agregarUsuario($datos);
     if($resp == "true"){
@@ -205,11 +205,11 @@ function cambiarEstado(){
     $data = array();
     $registrosNotificaciones = new RegistrosNotificaciones();
     if($estado == "1"){
-        $registrosNotificaciones->agregarNotificacion("El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue habilitado al Accesso del sistema.");
-        $registrosNotificaciones->agregarRegistro($codigoSession, "El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue habilitado al Accesso del sistema.");
+        $registrosNotificaciones->agregarNotificacion("El usuario ".$usuario[0]['nombre']." ".$usuario[0]['appat']." ".$usuario[0]['apmat']." con C.I.:".$usuario[0]['ci'].") fue habilitado al Accesso del sistema.");
+        $registrosNotificaciones->agregarRegistro($codigoSession, "El usuario ".$usuario[0]['nombre']." ".$usuario[0]['appat']." ".$usuario[0]['apmat']." con C.I.:".$usuario[0]['ci'].") fue habilitado al Accesso del sistema.");
     }else{
-        $registrosNotificaciones->agregarNotificacion("El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue Deshabilitado al Accesso del sistema.");
-        $registrosNotificaciones->agregarRegistro($codigoSession, "El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue Deshabilitado al Accesso del sistema.");
+        $registrosNotificaciones->agregarNotificacion("El usuario ".$usuario[0]['nombre']." ".$usuario[0]['appat']." ".$usuario[0]['apmat']." con C.I.:".$usuario[0]['ci'].") fue Deshabilitado al Accesso del sistema.");
+        $registrosNotificaciones->agregarRegistro($codigoSession, "El usuario ".$usuario[0]['nombre']." ".$usuario[0]['appat']." ".$usuario[0]['apmat']." con C.I.:".$usuario[0]['ci'].") fue Deshabilitado al Accesso del sistema.");
     }
     $data = ['resp' => $resp];
 
@@ -287,7 +287,7 @@ function verificarPrivilegio(){
             $usuario = $modelo->usuarioEspecifico($datos);
 
             $registrosNotificaciones = new RegistrosNotificaciones();
-            $registrosNotificaciones->agregarNotificacion("El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." Intento acceder a un Modulo del sistema que esta restringido para el Usuario. REFERENCIA:".$privilegio);
+            $registrosNotificaciones->agregarNotificacion("El usuario ".$usuario[0]['nombre']." ".$usuario[0]['appat']." ".$usuario[0]['apmat']." Intento acceder a un Modulo del sistema que esta restringido para el Usuario. REFERENCIA:".$privilegio);
             session_destroy();
             $data = ['privilegio' => '0'];
         }
