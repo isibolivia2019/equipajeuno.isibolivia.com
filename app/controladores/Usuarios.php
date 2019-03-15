@@ -191,6 +191,35 @@ function actualizarUsuario(){
     echo json_encode($data);
 }
 
+function cambiarEstado(){
+    $codigoSession = $_POST['codigoSession'];
+    $codigo = $_POST['codigo'];
+    $estado = $_POST['estado'];
+    $datos = array($estado, $codigo);
+    $modelo = modelo('Usuario');
+    $resp = $modelo->cambiarEstado($datos);
+    $datos = array($codigo);
+    $modelo = modelo('Usuario');
+    $usuario = $modelo->usuarioEspecifico($datos);
+
+    $data = array();
+    $registrosNotificaciones = new RegistrosNotificaciones();
+    if($estado == "1"){
+        $registrosNotificaciones->agregarNotificacion("El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue habilitado al Accesso del sistema.");
+        $registrosNotificaciones->agregarRegistro($codigoSession, "El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue habilitado al Accesso del sistema.");
+    }else{
+        $registrosNotificaciones->agregarNotificacion("El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue Deshabilitado al Accesso del sistema.");
+        $registrosNotificaciones->agregarRegistro($codigoSession, "El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue Deshabilitado al Accesso del sistema.");
+    }
+    $data = ['resp' => $resp];
+
+    echo json_encode($data);
+}
+
+
+
+
+
 
 
 
@@ -217,31 +246,6 @@ function listaUsuarioSinCargo(){
     $lista = $modelo->listaUsuarioSinCargo($datos);
     echo json_encode($lista);
 }
-
-function cambiarEstado(){
-    $codigo = $_POST['codigo'];
-    $estado = $_POST['estado'];
-    $datos = array($estado, $codigo);
-    $modelo = modelo('Usuario');
-    $resp = $modelo->cambiarEstado($datos);
-    $datos = array($codigo);
-    $modelo = modelo('Usuario');
-    $usuario = $modelo->usuarioEspecifico($datos);
-
-    $data = array();
-    $registrosNotificaciones = new RegistrosNotificaciones();
-    if($estado == "1"){
-        $registrosNotificaciones->agregarNotificacion("El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue habilitado al Accesso del sistema.");
-        $registrosNotificaciones->agregarRegistro($_SESSION['codigo'], "El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue habilitado al Accesso del sistema.");
-    }else{
-        $registrosNotificaciones->agregarNotificacion("El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue Deshabilitado al Accesso del sistema.");
-        $registrosNotificaciones->agregarRegistro($_SESSION['codigo'], "El usuario ".$usuario[0]['nombre_usuario']." ".$usuario[0]['appat_usuario']." ".$usuario[0]['apmat_usuario']." con C.I.:".$usuario[0]['ci_usuario'].") fue Deshabilitado al Accesso del sistema.");
-    }
-    $data = ['resp' => $resp];
-
-    echo json_encode($data);
-}
-
 
 function verificarPrivilegio(){
     $privilegio = $_POST['privilegio'];
