@@ -84,7 +84,6 @@ function agregarUsuario(){
     }
 
     $data = ['resp' => $resp];
-    $data[0] = $data;
     echo json_encode($data);
 }
 
