@@ -35,7 +35,7 @@ function actualizarCliente(){
     $apmat = $_POST['apmat'];
     $ci = $_POST['ci'];
     $ci_exp = $_POST['ci_exp'];
-    $telefono = $_POST['telefono'];
+    $celular = $_POST['celular'];
     $email = $_POST['email'];
 
     $datos = array($codigo);
