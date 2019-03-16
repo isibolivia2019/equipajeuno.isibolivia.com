@@ -44,7 +44,7 @@ function actualizarCliente(){
 
     $registrosNotificaciones = new RegistrosNotificaciones();
 
-    $datos = array($nombre, $appat, $apmat, $ci, $ci_exp, $telefono, $email);
+    $datos = array($nombre, $appat, $apmat, $ci, $ci_exp, $celular, $email);
     $modelo = modelo('Cliente');
     $resp = $modelo->actualizarCliente($datos);
 
