@@ -38,12 +38,6 @@ function actualizarCliente(){
     $celular = $_POST['celular'];
     $email = $_POST['email'];
 
-    $datos = array($codigo);
-    $modelo = modelo('Usuario');
-    $usuario = $modelo->usuarioEspecifico($datos);
-
-    $registrosNotificaciones = new RegistrosNotificaciones();
-
     $datos = array($nombre, $appat, $apmat, $ci, $ci_exp, $celular, $email, $codigo);
     $modelo = modelo('Cliente');
     $resp = $modelo->actualizarCliente($datos);
