@@ -22,7 +22,7 @@ class Cliente{
 	}
 
 	public function actualizarCliente($datos){
-		$sql = "UPDATE usuario SET nombre = ?, appat = ?, apmat = ?, ci = ?, ci_exp = ?, celular = ?, email = ?, WHERE codigo = ?";
+		$sql = "UPDATE cliente SET nombre = ?, appat = ?, apmat = ?, ci = ?, ci_exp = ?, celular = ?, email = ?, WHERE codigo = ?";
 		return $this->db->update($sql, $datos);
 	}
 }
