@@ -13,12 +13,45 @@ if (isset($_POST['action'])) {
         case 'listaCliente' :
             listaCliente();
             break;
+        case 'clienteEspecifico' :
+            clienteEspecifico();
+            break;
+        case 'actualizarCliente' :
+            actualizarCliente();
+            break;
     }
 }
 
 function modelo($modelo){
     require_once '../modelos/'.$modelo.'.php';
     return new $modelo();
+}
+
+function actualizarCliente(){
+    $codigoSession = $_POST['codigoSession'];
+    $codigo = $_POST['codigo'];
+    $nombre = $_POST['nombre'];
+    $appat = $_POST['appat'];
+    $apmat = $_POST['apmat'];
+    $ci = $_POST['ci'];
+    $ci_exp = $_POST['ci_exp'];
+    $telefono = $_POST['telefono'];
+    $email = $_POST['email'];
+
+    $datos = array($codigo);
+    $modelo = modelo('Usuario');
+    $usuario = $modelo->usuarioEspecifico($datos);
+
+    $registrosNotificaciones = new RegistrosNotificaciones();
+
+    $datos = array($nombre, $appat, $apmat, $ci, $ci_exp, $telefono, $email);
+    $modelo = modelo('Cliente');
+    $resp = $modelo->actualizarCliente($datos);
+
+    $registrosNotificaciones = new RegistrosNotificaciones();
+    $registrosNotificaciones->agregarRegistro($codigoSession, "Los datos del Cliente ".$nombre." ".$appat." ".$apmat." fue modificado y actualizado, Se recomienda revisar los datos");
+    $data = ['resp' => $resp];
+    echo json_encode($data);
 }
 
 function agregarCliente(){
@@ -51,6 +84,14 @@ function listaCliente(){
     $datos = array();
     $modelo = modelo('Cliente');
     $lista = $modelo->listaCliente($datos);
+    echo json_encode($lista);
+}
+
+function clienteEspecifico(){
+    $cliente = $_POST['cliente'];
+    $datos = array($usuario);
+    $modelo = modelo('Cliente');
+    $lista = $modelo->usuarioEspecifico($datos);
     echo json_encode($lista);
 }
 

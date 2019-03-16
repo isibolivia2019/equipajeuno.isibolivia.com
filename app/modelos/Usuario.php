@@ -26,6 +26,16 @@ class Usuario{
 		return $this->db->select($sql, $datos);
 	}
 
+	public function actualizarUsuario($datos){
+		$sql = "UPDATE usuario SET nombre = ?, appat = ?, apmat = ?, ci = ?, ci_exp = ?, genero = ?, fec_nac = ?, direccion = ?, telefono = ?, nombre_ref = ?, telefono_ref = ?, tipo_ref = ?, email = ?, pass = ?, registro = ?, notificacion = ? WHERE cod_usuario = ?";
+		return $this->db->update($sql, $datos);
+	}
+
+	public function cambiarEstado($datos){
+		$sql = "UPDATE usuario SET estado = ? WHERE cod_usuario = ?";
+		return $this->db->update($sql, $datos);
+	}
+
 
 
 	
@@ -63,15 +73,7 @@ class Usuario{
 		return $this->db->select($sql, $datos);
 	}
 
-	public function actualizarUsuario($datos){
-		$sql = "UPDATE usuario SET nombre = ?, appat = ?, apmat = ?, ci = ?, ci_exp = ?, genero = ?, fec_nac = ?, direccion = ?, telefono = ?, nombre_ref = ?, telefono_ref = ?, tipo_ref = ?, email = ?, pass = ?, registro = ?, notificacion = ? WHERE cod_usuario = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function cambiarEstado($datos){
-		$sql = "UPDATE usuario SET estado = ? WHERE cod_usuario = ?";
-		return $this->db->update($sql, $datos);
-	}
+	
 
 
 
