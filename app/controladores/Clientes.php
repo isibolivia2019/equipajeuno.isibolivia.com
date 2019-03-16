@@ -51,9 +51,6 @@ function listaCliente(){
     $datos = array();
     $modelo = modelo('Cliente');
     $lista = $modelo->listaCliente($datos);
-    for($i = 0 ; $i < sizeof($lista) ; $i++){
-        $lista[$i]["fecha"] = date("d/m/Y", strtotime($lista[$i]["fecha"])).' '.$lista[$i]["hora"];
-    }
     echo json_encode($lista);
 }
 
