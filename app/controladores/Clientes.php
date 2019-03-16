@@ -89,7 +89,7 @@ function listaCliente(){
 
 function clienteEspecifico(){
     $cliente = $_POST['cliente'];
-    $datos = array($usuario);
+    $datos = array($cliente);
     $modelo = modelo('Cliente');
     $lista = $modelo->usuarioEspecifico($datos);
     echo json_encode($lista);
