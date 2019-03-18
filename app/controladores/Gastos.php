@@ -47,7 +47,8 @@ function actualizarGasto(){
 function agregarGasto(){
     $imagen = $_POST['imagen'];
     file_put_contents("http://equipajeuno.isibolivia.com/imagenes/gastos/prueba.jpg", $imagen);
-    
+    $data = ['resp' => 'true'];
+    echo json_encode($data);
     /*$codigoSession = $_POST['codigoSession'];
     $monto = $_POST['monto'];
     $detalle = $_POST['detalle'];
