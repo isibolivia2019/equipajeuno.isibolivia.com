@@ -45,7 +45,10 @@ function actualizarGasto(){
 }
 
 function agregarGasto(){
-    $codigoSession = $_POST['codigoSession'];
+    $imagen = $_POST['imagen'];
+    file_put_contents("http://equipajeuno.isibolivia.com/imagenes/gastos/prueba.jpg", $imagen);
+    
+    /*$codigoSession = $_POST['codigoSession'];
     $monto = $_POST['monto'];
     $detalle = $_POST['detalle'];
     $comprobante = $_POST['comprobante'];
@@ -63,7 +66,7 @@ function agregarGasto(){
     $registrosNotificaciones->agregarRegistro($codigoSession, "Se registro un nuevo Gasto (".$detalle.") con Monto de: Bs.".$Monto);
 
     $data = ['resp' => $resp];
-    echo json_encode($data);
+    echo json_encode($data);*/
 }
 
 function listaGasto(){
