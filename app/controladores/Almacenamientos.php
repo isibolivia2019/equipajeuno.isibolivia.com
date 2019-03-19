@@ -29,7 +29,7 @@ function agregarEquipaje(){
     $nombreImagen = $_POST['nombreImagen'];
     $imagen = $_POST['imagen'];
     if($nombreImagen != "sin_imagen_equipaje.jpg"){
-        file_put_contents("../../public/imagenes/gastos/".$nombreImagen, base64_decode($imagen));
+        file_put_contents("../../public/imagenes/equipaje/".$nombreImagen, base64_decode($imagen));
     }
     
     date_default_timezone_set('America/La_Paz');
@@ -42,7 +42,7 @@ function agregarEquipaje(){
     $resp = $modelo->agregarEquipaje($datos);
 
     $registrosNotificaciones = new RegistrosNotificaciones();
-    $registrosNotificaciones->agregarRegistro($codigoSession, "Se registro el recepcionamiento de un nuevo equipaje  (".$detalle.") con Monto de: Bs. ".$monto);
+    $registrosNotificaciones->agregarRegistro($codigoSession, "Se registro el recepcionamiento de un nuevo equipaje  (".$detalle.") con el Costo de: Bs. ".$costo);
 
     $data = ['resp' => $resp];
     echo json_encode($data);
