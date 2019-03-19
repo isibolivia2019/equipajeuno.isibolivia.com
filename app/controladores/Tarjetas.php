@@ -16,6 +16,9 @@ if (isset($_POST['action'])) {
         case 'tarjetaEspecifico' :
             tarjetaEspecifico();
             break;
+        case 'listaTarjetaLibre' :
+            listaTarjetaLibre();
+            break;
     }
 }
 
@@ -44,6 +47,13 @@ function listaTarjeta(){
     $datos = array();
     $modelo = modelo('Tarjeta');
     $lista = $modelo->listaTarjeta($datos);
+    echo json_encode($lista);
+}
+
+function listaTarjetaLibre(){
+    $datos = array("0");
+    $modelo = modelo('Tarjeta');
+    $lista = $modelo->listaTarjetaLibre($datos);
     echo json_encode($lista);
 }
 
