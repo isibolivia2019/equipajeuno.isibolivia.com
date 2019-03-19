@@ -45,21 +45,20 @@ function actualizarGasto(){
 }
 
 function agregarGasto(){
-    $imagen = $_POST['imagen'];
-    file_put_contents("../../public/imagenes/gastos/prueba.jpg", base64_decode($imagen));
-    $data = ['resp' => 'true'];
-    echo json_encode($data);
-    /*$codigoSession = $_POST['codigoSession'];
+    $codigoSession = $_POST['codigoSession'];
     $monto = $_POST['monto'];
     $detalle = $_POST['detalle'];
-    $comprobante = $_POST['comprobante'];
+    $nombreImagen = $_POST['nombreImagen'];
+
+    $imagen = $_POST['imagen'];
+    file_put_contents("../../public/imagenes/gastos/".$nombreImagen, base64_decode($imagen));
 
     date_default_timezone_set('America/La_Paz');
     $hora = date("H:i:s");
     $fecha = date("Y-m-d");
     $resp = "";
 
-    $datos = array($monto, $detalle, $comprobante, $codigoSession, $fecha, $hora);
+    $datos = array($monto, $detalle, $nombreImagen, $codigoSession, $fecha, $hora);
     $modelo = modelo('Gasto');
     $resp = $modelo->agregarGasto($datos);
 
@@ -67,7 +66,7 @@ function agregarGasto(){
     $registrosNotificaciones->agregarRegistro($codigoSession, "Se registro un nuevo Gasto (".$detalle.") con Monto de: Bs.".$Monto);
 
     $data = ['resp' => $resp];
-    echo json_encode($data);*/
+    echo json_encode($data);
 }
 
 function listaGasto(){
