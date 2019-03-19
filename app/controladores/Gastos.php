@@ -63,7 +63,7 @@ function agregarGasto(){
     $resp = $modelo->agregarGasto($datos);
 
     $registrosNotificaciones = new RegistrosNotificaciones();
-    $registrosNotificaciones->agregarRegistro($codigoSession, "Se registro un nuevo Gasto (".$detalle.") con Monto de: Bs. ".$Monto);
+    $registrosNotificaciones->agregarRegistro($codigoSession, "Se registro un nuevo Gasto (".$detalle.") con Monto de: Bs. ".$monto);
 
     $data = ['resp' => $resp];
     echo json_encode($data);
