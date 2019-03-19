@@ -77,7 +77,7 @@ function devolverEquipaje(){
     $fecha = date("Y-m-d");
     $resp = "";
 
-    $datos = array($totalCosto, $observacion, $fecha, $hora, $codigoSession, $codigoTarjeta, $codigoCliente);
+    $datos = array("1", $totalCosto, $observacion, $fecha, $hora, $codigoSession, $codigoTarjeta, $codigoCliente);
     $modelo = modelo('Almacenamiento');
     $resp = $modelo->devolverEquipaje($datos);
 

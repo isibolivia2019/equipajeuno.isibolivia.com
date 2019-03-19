@@ -22,7 +22,7 @@ class Almacenamiento{
 	}
 
 	public function devolverEquipaje($datos){
-		$sql = "UPDATE almacenamiento SET costo_total = ?, detalle_final = ?, fecha_final = ?, hora_final = ?, usuario_final = ? WHERE cod_tarjeta = ? and cod_cliente = ? and fecha_final IS NULL";
+		$sql = "UPDATE almacenamiento SET pago_anticipado = ?, costo_total = ?, detalle_final = ?, fecha_final = ?, hora_final = ?, usuario_final = ? WHERE cod_tarjeta = ? and cod_cliente = ? and fecha_final IS NULL";
 		return $this->db->update($sql, $datos);
 	}
 }
