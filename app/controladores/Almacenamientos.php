@@ -10,6 +10,12 @@ if (isset($_POST['action'])) {
         case 'agregarEquipaje' :
             agregarEquipaje();
             break;
+        case 'listaTarjetaLibre' :
+            listaTarjetaLibre();
+            break;
+        case 'listaTarjetaOcupada' :
+            listaTarjetaOcupada();
+            break;
     }
 }
 
@@ -46,5 +52,19 @@ function agregarEquipaje(){
 
     $data = ['resp' => $resp];
     echo json_encode($data);
+}
+
+function listaTarjetaLibre(){
+    $datos = array("0");
+    $modelo = modelo('Tarjeta');
+    $lista = $modelo->listaTarjetaLibre($datos);
+    echo json_encode($lista);
+}
+
+function listaTarjetaOcupada(){
+    $datos = array();
+    $modelo = modelo('Almacenamiento');
+    $lista = $modelo->listaTarjetaOcupada($datos);
+    echo json_encode($lista);
 }
 ?>

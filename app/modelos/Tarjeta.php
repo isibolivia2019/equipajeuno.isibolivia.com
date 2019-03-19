@@ -15,9 +15,14 @@ class Tarjeta{
 		$sql = "SELECT * FROM tarjeta";
 		return $this->db->select($sql, $datos);
 	}
+
+	public function listaTarjetaLibre($datos){
+		$sql = "SELECT * FROM tarjeta WHERE estado = ?";
+		return $this->db->select($sql, $datos);
+	}
     
-  public function agregarTarjeta($datos){
-		$sql = "INSERT INTO tarjeta(codigo, nombre, observacion) VALUES(?,?,?);";
+  	public function agregarTarjeta($datos){
+		$sql = "INSERT INTO tarjeta(codigo, nombre, observacion, estado) VALUES(?,?,?,?);";
 		return $this->db->insert($sql, $datos);
 	}
 }

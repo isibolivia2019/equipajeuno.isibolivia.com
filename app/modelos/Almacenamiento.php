@@ -11,6 +11,9 @@ class Almacenamiento{
 		return $this->db->insert($sql, $datos);
 	}
 
-
+	public function listaTarjetaOcupada($datos){
+		$sql = "SELECT cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio, detalle_final, fecha_final hora_final, usuario_final FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.cod_cliente and fecha_final = null";
+		return $this->db->select($sql, $datos);
+	}
 }
 ?>

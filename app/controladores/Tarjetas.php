@@ -29,7 +29,7 @@ function agregarTarjeta(){
     $codigo = $_POST['codigo'];
     $observacion = $_POST['observacion'];
 
-    $datos = array($codigo, $codigo, $observacion);
+    $datos = array($codigo, $codigo, $observacion, "0");
     $modelo = modelo('Tarjeta');
     $resp = $modelo->agregarTarjeta($datos);
 
