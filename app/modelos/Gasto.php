@@ -7,7 +7,7 @@ class Gasto{
 	}
 
 	public function gastoEspecifico($datos){
-		$sql = "SELECT * FROM gastos WHERE codigo = ?;";
+		$sql = "SELECT monto, detalle, comprobante, cod_usuario, fecha, hora, CONCAT(nombre, ' ', appat, ' ', apmat) as 'personal' FROM gastos, usuario WHERE gastos.cod_usuario = usuario.cod_usuario and codigo = ?;";
 		return $this->db->select($sql, $datos);
 	}
 
