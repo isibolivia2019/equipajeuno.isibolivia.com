@@ -19,6 +19,9 @@ if (isset($_POST['action'])) {
         case 'actualizarCliente' :
             actualizarCliente();
             break;
+        case 'clienteEspecificoCi' :
+            clienteEspecificoCi();
+            break;
     }
 }
 
@@ -86,6 +89,14 @@ function clienteEspecifico(){
     $datos = array($cliente);
     $modelo = modelo('Cliente');
     $lista = $modelo->clienteEspecifico($datos);
+    echo json_encode($lista);
+}
+
+function clienteEspecificoCi(){
+    $ci = $_POST['ci'];
+    $datos = array($ci);
+    $modelo = modelo('Cliente');
+    $lista = $modelo->clienteEspecificoCi($datos);
     echo json_encode($lista);
 }
 
