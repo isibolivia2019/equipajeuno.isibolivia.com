@@ -1,0 +1,24 @@
+<?php
+require_once 'Base.php';
+class Tarjeta{
+	private $db;
+	public function __construct(){
+		$this->db = new Base;
+	}
+
+	public function tarjetaEspecifico($datos){
+		$sql = "SELECT * FROM tarjeta WHERE codigo = ?;";
+		return $this->db->select($sql, $datos);
+	}
+
+	public function listaTarjeta($datos){
+		$sql = "SELECT * FROM tarjeta";
+		return $this->db->select($sql, $datos);
+	}
+    
+  public function agregarTarjeta($datos){
+		$sql = "INSERT INTO tarjeta(codigo, nombre, observacion) VALUES(?,?,?);";
+		return $this->db->insert($sql, $datos);
+	}
+}
+?>
