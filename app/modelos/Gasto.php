@@ -12,7 +12,7 @@ class Gasto{
 	}
 
 	public function listaGasto($datos){
-		$sql = "SELECT * FROM gastos;";
+		$sql = "SELECT monto, detalle, comprobante, cod_usuario, fecha, hora, CONCAT(nombre, ' ', appat, ' ', apmat) as 'personal' FROM gastos, usuario WHERE gastos.cod_usuario = usuario.cod_usuario;";
 		return $this->db->select($sql, $datos);
 	}
     
