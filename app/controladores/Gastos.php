@@ -74,7 +74,7 @@ function listaGasto(){
     $modelo = modelo('Gasto');
     $lista = $modelo->listaGasto($datos);
     for($i = 0 ; $i < sizeof($lista) ; $i++){
-        $lista[$i]["fecha"] = date("d/m/Y", strtotime($lista[$i]["fecha"]))." ".$lista[$i]["hora"];
+        $lista[$i]["fecha"] = date("d/m/Y", strtotime($lista[$i]["fecha"]))." - ".$lista[$i]["hora"];
         $lista[$i]["monto"] = 'Bs. '.$lista[$i]["monto"];
     }
     echo json_encode($lista);
