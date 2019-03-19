@@ -16,6 +16,9 @@ if (isset($_POST['action'])) {
         case 'listaTarjetaOcupada' :
             listaTarjetaOcupada();
             break;
+        case 'almacenamientoEntregaEspecifico' :
+            almacenamientoEntregaEspecifico();
+            break;
     }
 }
 
@@ -69,6 +72,14 @@ function listaTarjetaOcupada(){
     $datos = array();
     $modelo = modelo('Almacenamiento');
     $lista = $modelo->listaTarjetaOcupada($datos);
+    echo json_encode($lista);
+}
+
+function almacenamientoEntregaEspecifico(){
+    $tarjeta = $_POST['tarjeta'];
+    $datos = array($tarjeta);
+    $modelo = modelo('Almacenamiento');
+    $lista = $modelo->almacenamientoEntregaEspecifico($datos);
     echo json_encode($lista);
 }
 ?>
