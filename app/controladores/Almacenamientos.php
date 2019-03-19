@@ -48,7 +48,7 @@ function agregarEquipaje(){
     $resp = $modelo->agregarEquipaje($datos);
 
     $datos = array("1", $codigoTarjeta);
-    $modelo = modelo('tarjeta');
+    $modelo = modelo('Tarjeta');
     $resp = $modelo->cambiarEstado($datos);
 
     $registrosNotificaciones = new RegistrosNotificaciones();
