@@ -1,6 +1,6 @@
 <?php
 require_once 'Base.php';
-class Gasto{
+class Almacenamiento{
 	private $db;
 	public function __construct(){
 		$this->db = new Base;
