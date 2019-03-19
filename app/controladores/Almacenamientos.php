@@ -47,6 +47,10 @@ function agregarEquipaje(){
     $modelo = modelo('Almacenamiento');
     $resp = $modelo->agregarEquipaje($datos);
 
+    $datos = array("1", $codigoTarjeta);
+    $modelo = modelo('tarjeta');
+    $resp = $modelo->cambiarEstado($datos);
+
     $registrosNotificaciones = new RegistrosNotificaciones();
     $registrosNotificaciones->agregarRegistro($codigoSession, "Se registro el recepcionamiento de un nuevo equipaje  (".$detalle.") con el Costo de: Bs. ".$costo);
 

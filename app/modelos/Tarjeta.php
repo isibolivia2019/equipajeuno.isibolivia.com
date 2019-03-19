@@ -20,6 +20,11 @@ class Tarjeta{
 		$sql = "SELECT * FROM tarjeta WHERE estado = ?";
 		return $this->db->select($sql, $datos);
 	}
+
+	public function cambiarEstado($datos){
+		$sql = "UPDATE tarjeta SET estado = ? WHERE codigo = ?";
+		return $this->db->update($sql, $datos);
+	}
     
   	public function agregarTarjeta($datos){
 		$sql = "INSERT INTO tarjeta(codigo, nombre, observacion, estado) VALUES(?,?,?,?);";
