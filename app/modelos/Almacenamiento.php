@@ -16,8 +16,8 @@ class Almacenamiento{
 		return $this->db->select($sql, $datos);
 	}
 
-	public function listaTarjetaOcupadaBusqueda($datos){
-		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and (detalle_inicio like %?%) and fecha_final IS NULL;";
+	public function listaTarjetaOcupadaBusqueda($datos, $palabra){
+		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and (detalle_inicio like '%".$palabra."%' or cod_tarjeta like '%".$palabra."%' or costo like '%".$palabra."%' or cliente.nombre like '%".$palabra."%' or cliente.appat like '%".$palabra."%' or cliente.apmat like '%".$palabra."%') and fecha_final IS NULL;";
 		return $this->db->select($sql, $datos);
 	}
 
