@@ -16,6 +16,9 @@ if (isset($_POST['action'])) {
         case 'listaTarjetaOcupada' :
             listaTarjetaOcupada();
             break;
+        case 'listaTarjetaOcupadaBusqueda' :
+            listaTarjetaOcupadaBusqueda();
+                break;
         case 'almacenamientoEntregaEspecifico' :
             almacenamientoEntregaEspecifico();
             break;
