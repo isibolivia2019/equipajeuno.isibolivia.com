@@ -236,7 +236,7 @@ function actualizarImagen(){
     $resp = $modelo->actualizarImagen($datos);
 
     $registrosNotificaciones = new RegistrosNotificaciones();
-    $registrosNotificaciones->agregarRegistro($codigoSession, "Se registro un nuevo Gasto (".$detalle.") con Monto de: Bs. ".$monto);
+    $registrosNotificaciones->agregarRegistro($codigoSession, "Se actualizo la imagen de Perfil del Usuario");
 
     $data = ['resp' => $resp];
     echo json_encode($data);
