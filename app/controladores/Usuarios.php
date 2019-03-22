@@ -16,6 +16,9 @@ if (isset($_POST['action'])) {
         case 'listaUsuarioEstado' :
             listaUsuarioEstado();
             break;
+        case 'actualizarImagen' :
+            actualizarImagen();
+            break;
 
 
         case 'listaUsuarioSinCargo' :
@@ -216,6 +219,28 @@ function cambiarEstado(){
     echo json_encode($data);
 }
 
+function actualizarImagen(){
+    $codigoSession = $_POST['codigoSession'];
+    $nombreImagen = $_POST['nombreImagen'];
+
+    $imagen = $_POST['imagen'];
+    file_put_contents("../../public/imagenes/usuarios/".$nombreImagen, base64_decode($imagen));
+
+    date_default_timezone_set('America/La_Paz');
+    $hora = date("H:i:s");
+    $fecha = date("Y-m-d");
+    $resp = "";
+
+    $datos = array($nombreImagen, $codigoSession);
+    $modelo = modelo('Usuario');
+    $resp = $modelo->actualizarImagen($datos);
+
+    $registrosNotificaciones = new RegistrosNotificaciones();
+    $registrosNotificaciones->agregarRegistro($codigoSession, "Se registro un nuevo Gasto (".$detalle.") con Monto de: Bs. ".$monto);
+
+    $data = ['resp' => $resp];
+    echo json_encode($data);
+}
 
 
 

@@ -36,6 +36,11 @@ class Usuario{
 		return $this->db->update($sql, $datos);
 	}
 
+	public function actualizarImagen($datos){
+		$sql = "UPDATE usuario SET imagen = ? WHERE cod_usuario = ?";
+		return $this->db->update($sql, $datos);
+	}
+
 
 
 	
