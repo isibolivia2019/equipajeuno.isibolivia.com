@@ -104,7 +104,7 @@ function listaTarjetaLibre(){
 
 function listaTarjetaOcupadaBusqueda(){
     $buscar = $_POST['buscar'];
-    $datos = array($buscar, $buscar, $buscar, $buscar, $buscar, $buscar);
+    $datos = array($buscar);
     $modelo = modelo('Almacenamiento');
     $lista = $modelo->listaTarjetaOcupadaBusqueda($datos);
     echo json_encode($lista);
