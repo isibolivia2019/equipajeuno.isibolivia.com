@@ -128,7 +128,7 @@ function autentificacionUsuario(){
 function listaRegistroUsuarioBusqueda(){
     $codigo = $_POST['codigo'];
     $buscar = $_POST['buscar'];
-    $datos = array($estado);
+    $datos = array($codigo);
     $modelo = modelo('RegistroNotificacion');
     $lista = $modelo->listaRegistroUsuarioBusqueda($datos);
     echo json_encode($lista);
@@ -136,7 +136,7 @@ function listaRegistroUsuarioBusqueda(){
 
 function listaRegistroUsuario(){
     $codigo = $_POST['codigo'];
-    $datos = array($estado);
+    $datos = array($codigo);
     $modelo = modelo('RegistroNotificacion');
     $lista = $modelo->listaRegistroUsuario($datos);
     echo json_encode($lista);
