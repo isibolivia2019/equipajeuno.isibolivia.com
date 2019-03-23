@@ -45,7 +45,7 @@ class Usuario{
 		$sql = "SELECT cod_usuario, nombre, appat, apmat, ci, ci_exp, genero, fec_nac,direccion, telefono, nombre_ref, telefono_ref, tipo_ref, email, pass, imagen, estado FROM usuario;";
 		return $this->db->select($sql, $datos);
 	}
-	
+
 
 
 
@@ -98,34 +98,13 @@ class Usuario{
 		return $this->db->update($sql, $datos);
 	}
 
-
-	public function actualizarPrivilegioItemHorario($datos){
-		$sql = "UPDATE usuario_privilegios SET itemHorario = ? WHERE cod_usuario  = ?";
+	public function actualizarPrivilegioItemCliente($datos){
+		$sql = "UPDATE usuario_privilegios SET itemCliente = ? WHERE cod_usuario  = ?";
 		return $this->db->update($sql, $datos);
 	}
 
-	public function actualizarPrivilegioItemSueldo($datos){
-		$sql = "UPDATE usuario_privilegios SET itemSueldo = ? WHERE cod_usuario  = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function actualizarPrivilegioItemProducto($datos){
-		$sql = "UPDATE usuario_privilegios SET itemProducto = ? WHERE cod_usuario  = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function actualizarPrivilegioItemCategoria($datos){
-		$sql = "UPDATE usuario_privilegios SET itemCategoria = ? WHERE cod_usuario  = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function actualizarPrivilegioItemSucursal($datos){
-		$sql = "UPDATE usuario_privilegios SET itemSucursal = ? WHERE cod_usuario  = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function actualizarPrivilegioItemAlmacen($datos){
-		$sql = "UPDATE usuario_privilegios SET itemAlmacen = ? WHERE cod_usuario  = ?";
+	public function actualizarPrivilegioItemTarjeta($datos){
+		$sql = "UPDATE usuario_privilegios SET itemTarjeta = ? WHERE cod_usuario  = ?";
 		return $this->db->update($sql, $datos);
 	}
 
@@ -134,53 +113,23 @@ class Usuario{
 		return $this->db->update($sql, $datos);
 	}
 
-	public function actualizarPrivilegioItemDescuentoProductos($datos){
-		$sql = "UPDATE usuario_privilegios SET itemDescuentoProductos = ? WHERE cod_usuario  = ?";
+	public function actualizarPrivilegioItemRecepcion($datos){
+		$sql = "UPDATE usuario_privilegios SET itemRecepcion = ? WHERE cod_usuario  = ?";
 		return $this->db->update($sql, $datos);
 	}
 
-	public function actualizarPrivilegioItemTraspasoProductos($datos){
-		$sql = "UPDATE usuario_privilegios SET itemTraspasoProductos = ? WHERE cod_usuario  = ?";
+	public function actualizarPrivilegioItemEntrega($datos){
+		$sql = "UPDATE usuario_privilegios SET itemEntrega = ? WHERE cod_usuario  = ?";
 		return $this->db->update($sql, $datos);
 	}
 
-	public function actualizarPrivilegioItemProductosPerdidos($datos){
-		$sql = "UPDATE usuario_privilegios SET itemProductosPerdidos = ? WHERE cod_usuario  = ?";
+	public function actualizarPrivilegioItemEstante($datos){
+		$sql = "UPDATE usuario_privilegios SET itemEstante = ? WHERE cod_usuario  = ?";
 		return $this->db->update($sql, $datos);
 	}
 
-	public function actualizarPrivilegioItemVentas($datos){
-		$sql = "UPDATE usuario_privilegios SET itemVentas = ? WHERE cod_usuario  = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function actualizarPrivilegioItemBiometrico($datos){
-		$sql = "UPDATE usuario_privilegios SET itemBiometrico = ? WHERE cod_usuario  = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function actualizarPrivilegioItemAccesos($datos){
+	public function actualizarPrivilegioItemAcceso($datos){
 		$sql = "UPDATE usuario_privilegios SET itemAccesos = ? WHERE cod_usuario  = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function actualizarPrivilegioItemCajaChica($datos){
-		$sql = "UPDATE usuario_privilegios SET itemCajaChica = ? WHERE cod_usuario  = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function actualizarPrivilegioItemCliente($datos){
-		$sql = "UPDATE usuario_privilegios SET itemCliente = ? WHERE cod_usuario  = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function actualizarPrivilegioItemConfiguracion($datos){
-		$sql = "UPDATE usuario_privilegios SET itemConfiguracion = ? WHERE cod_usuario  = ?";
-		return $this->db->update($sql, $datos);
-	}
-
-	public function actualizarPrivilegioItemRegistro($datos){
-		$sql = "UPDATE usuario_privilegios SET itemRegistro = ? WHERE cod_usuario  = ?";
 		return $this->db->update($sql, $datos);
 	}
 

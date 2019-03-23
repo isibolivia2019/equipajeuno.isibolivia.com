@@ -211,14 +211,14 @@ function actualizarAccesoModulo(){
     $modelo = modelo('Usuario');
 
     if($modulo == "Usuario"){$resp = $modelo->actualizarPrivilegioItemUsuario($datos);}
-    if($modulo == "Sucursal"){$resp = $modelo->actualizarPrivilegioItemSucursal($datos);}
-    if($modulo == "Almacen"){$resp = $modelo->actualizarPrivilegioItemAlmacen($datos);}
-    if($modulo == "Producto"){$resp = $modelo->actualizarPrivilegioItemProducto($datos);}
-    if($modulo == "Venta"){$resp = $modelo->actualizarPrivilegioItemVentas($datos);}
-    if($modulo == "Reporte"){$resp = $modelo->actualizarPrivilegioItemReportes($datos);}
-    if($modulo == "CajaChica"){$resp = $modelo->actualizarPrivilegioItemCajaChica($datos);}
-    if($modulo == "Acceso"){$resp = $modelo->actualizarPrivilegioItemAccesos($datos);}
-    if($modulo == "Configuracion"){$resp = $modelo->actualizarPrivilegioItemConfiguracion($datos);}
+    if($modulo == "Cliente"){$resp = $modelo->actualizarPrivilegioItemCliente($datos);}
+    if($modulo == "Tarjeta"){$resp = $modelo->actualizarPrivilegioItemTarjeta($datos);}
+    if($modulo == "Reportes"){$resp = $modelo->actualizarPrivilegioItemReportes($datos);}
+    if($modulo == "Recepcion"){$resp = $modelo->actualizarPrivilegioItemRecepcion($datos);}
+    if($modulo == "Entrega"){$resp = $modelo->actualizarPrivilegioItemEntrega($datos);}
+    if($modulo == "Estante"){$resp = $modelo->actualizarPrivilegioItemEstante($datos);}
+    if($modulo == "Acceso"){$resp = $modelo->actualizarPrivilegioItemAcceso($datos);}
+    if($modulo == "Notificacion"){$resp = $modelo->actualizarPrivilegioItemNotificacion($datos);}
 
     $datos = array($usuario);
     $modelo = modelo('Usuario');
