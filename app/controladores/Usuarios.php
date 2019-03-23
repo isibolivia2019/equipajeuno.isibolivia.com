@@ -16,6 +16,9 @@ if (isset($_POST['action'])) {
         case 'listaUsuarioEstado' :
             listaUsuarioEstado();
             break;
+        case 'listaUsuarioEstadoBusqueda' :
+            listaUsuarioEstadoBusqueda();
+            break;
         case 'actualizarImagen' :
             actualizarImagen();
             break;
@@ -114,6 +117,16 @@ function autentificacionUsuario(){
         $usuario[0]['itemNotificacion'] = $permisos[0]['itemNotificacion'];
     }
     echo json_encode($usuario);
+}
+
+
+function listaUsuarioEstadoBusqueda(){
+    $estado = $_POST['estado'];
+    $buscar = $_POST['buscar'];
+    $datos = array($estado);
+    $modelo = modelo('Usuario');
+    $lista = $modelo->listaUsuarioEstadoBusqueda($datos, $buscar);
+    echo json_encode($lista);
 }
 
 function listaUsuarioEstado(){

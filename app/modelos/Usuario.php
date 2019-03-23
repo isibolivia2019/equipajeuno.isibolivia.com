@@ -44,7 +44,10 @@ class Usuario{
 
 
 	
-  	
+	public function listaUsuarioEstadoBusqueda($datos){
+		$sql = "SELECT cod_usuario, nombre, appat, apmat, ci, ci_exp, genero, fec_nac,direccion, telefono, nombre_ref, telefono_ref, tipo_ref, email, pass, imagen, estado FROM usuario WHERE estado = ? and (nombre like '%".$palabra."%' or appat like '%".$palabra."%' or apmat like '%".$palabra."%' or ci like '%".$palabra."%' or telefono like '%".$palabra."%' or email like '%".$palabra."%');";
+		return $this->db->select($sql, $datos);
+	}
 
 	public function listaUsuarioEstado($datos){
 		$sql = "SELECT cod_usuario, nombre, appat, apmat, ci, ci_exp, genero, fec_nac,direccion, telefono, nombre_ref, telefono_ref, tipo_ref, email, pass, imagen, estado FROM usuario WHERE estado = ?;";
