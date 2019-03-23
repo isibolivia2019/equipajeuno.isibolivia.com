@@ -12,7 +12,7 @@ class Almacenamiento{
 	}
 
 	public function almacenamientoFinalEspecifico($datos){
-		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio, detalle_final, fecha_final, hora_final, usuario_final FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and almacenamiento.codigo = ?;";
+		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio, detalle_final, fecha_final, hora_final, usuario_final, DATEDIFF(DATE_SUB(now(), INTERVAL 4 HOUR), fecha_inicio) as 'dias' FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and almacenamiento.codigo = ?;";
 		return $this->db->select($sql, $datos);
 	}
 
@@ -32,7 +32,7 @@ class Almacenamiento{
 	}
 
 	public function almacenamientoEntregaEspecifico($datos){
-		$sql = "SELECT almacenamiento.codigo, CONCAT(cliente.codigo) as 'cod_cliente', CONCAT(cliente.nombre, ' ', cliente.appat, ' ', cliente.apmat) as 'cliente', cliente.ci, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, CONCAT(usuario.nombre, ' ', usuario.appat, ' ', usuario.apmat) as 'personal', DATEDIFF(CURDATE(), fecha_inicio) as 'dias' FROM almacenamiento, cliente, usuario WHERE almacenamiento.cod_cliente = cliente.codigo and almacenamiento.usuario_inicio = usuario.cod_usuario and cod_tarjeta = ? and fecha_final IS NULL;";
+		$sql = "SELECT almacenamiento.codigo, CONCAT(cliente.codigo) as 'cod_cliente', CONCAT(cliente.nombre, ' ', cliente.appat, ' ', cliente.apmat) as 'cliente', cliente.ci, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, CONCAT(usuario.nombre, ' ', usuario.appat, ' ', usuario.apmat) as 'personal', DATEDIFF(DATE_SUB(now(), INTERVAL 4 HOUR), fecha_inicio) as 'dias' FROM almacenamiento, cliente, usuario WHERE almacenamiento.cod_cliente = cliente.codigo and almacenamiento.usuario_inicio = usuario.cod_usuario and cod_tarjeta = ? and fecha_final IS NULL;";
 		return $this->db->select($sql, $datos);
 	}
 
