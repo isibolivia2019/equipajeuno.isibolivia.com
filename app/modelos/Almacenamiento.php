@@ -12,12 +12,12 @@ class Almacenamiento{
 	}
 
 	public function almacenamientoFinalEspecifico($datos){
-		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio, detalle_final, fecha_final, hora_final, usuario_final, DATEDIFF(DATE_SUB(now(), INTERVAL 4 HOUR), fecha_inicio) as 'dias' FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and almacenamiento.codigo = ?;";
+		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio, detalle_final, fecha_final, hora_final, usuario_final, DATEDIFF(fecha_final, fecha_inicio) as 'dias' FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and almacenamiento.codigo = ? and fecha_final IS NOT NULL;";
 		return $this->db->select($sql, $datos);
 	}
 
 	public function HistorialClienteEquipaje($datos){
-		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio, detalle_final, fecha_final, hora_final, usuario_final, DATEDIFF(DATE_SUB(now(), INTERVAL 4 HOUR), fecha_inicio) as 'dias' FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and almacenamiento.cod_cliente = ?;";
+		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio, detalle_final, fecha_final, hora_final, usuario_final, DATEDIFF(fecha_final, fecha_inicio) as 'dias' FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and almacenamiento.cod_cliente = ? and fecha_final IS NOT NULL;";
 		return $this->db->select($sql, $datos);
 	}
 
