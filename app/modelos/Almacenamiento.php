@@ -22,7 +22,7 @@ class Almacenamiento{
 	}
 
 	public function HistorialClienteEquipajeBusqueda($datos, $palabra){
-		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio, detalle_final, fecha_final, hora_final, usuario_final, DATEDIFF(fecha_final, fecha_inicio) as 'dias' FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and (detalle_inicio like '%".$palabra."%' or detalle_final like '%".$palabra."%' or costo like '%".$palabra."%' or costo_total like '%".$palabra."%') and fecha_final IS NOT NULL;";
+		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio, detalle_final, fecha_final, hora_final, usuario_final, DATEDIFF(fecha_final, fecha_inicio) as 'dias' FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and (detalle_inicio like '%".$palabra."%' or detalle_final like '%".$palabra."%' or costo like '%".$palabra."%' or costo_total like '%".$palabra."%' or cod_tarjeta like '%".$palabra."%') and fecha_final IS NOT NULL;";
 		return $this->db->select($sql, $datos);
 	}
 
