@@ -6,6 +6,16 @@ class RegistroNotificacion{
 		$this->db = new Base;
 	}
 
+	public function listaNotificacionUsuario($datos){
+		$sql = "SELECT cod_notificacion_usuario, mensaje, fecha, hora FROM notificacion_usuario WHERE cod_usuario_remitente = ? GROUP BY fecha, hora ORDER BY cod_notificacion_usuario desc;";
+		return $this->db->select($sql, $datos);
+	}
+
+	public function listaNotificacionUsuarioBusqueda($datos, $palabra){
+		$sql = "SELECT cod_notificacion_usuario, mensaje, fecha, hora FROM notificacion_usuario WHERE cod_usuario_remitente = ? and (mensaje like '%".$palabra."%') GROUP BY fecha, hora ORDER BY cod_notificacion_usuario desc;";
+		return $this->db->select($sql, $datos);
+	}
+
 	public function listaRegistroUsuario($datos){
 		$sql = "SELECT cod_registro_usuario, mensaje, fecha, hora FROM registro_usuario WHERE cod_usuario_emisor = ? GROUP BY fecha, hora ORDER BY cod_registro_usuario desc;";
 		return $this->db->select($sql, $datos);
