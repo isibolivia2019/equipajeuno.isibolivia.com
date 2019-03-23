@@ -225,11 +225,11 @@ function actualizarAccesoModulo(){
     $listaUsuario = $modelo->usuarioEspecifico($datos);
 
     if($estado){
-        $registrosNotificaciones->agregarRegistro($codigoSession, "Se permitio que el Usuario ".$listaUsuario[0]['nombre_usuario']." ".$listaUsuario[0]['appat_usuario']." ".$listaUsuario[0]['apmat_usuario']." tenga Acceso al modulo ".$modulo);
-        $registrosNotificaciones->agregarNotificacion("Se permitio que el Usuario ".$listaUsuario[0]['nombre_usuario']." ".$listaUsuario[0]['appat_usuario']." ".$listaUsuario[0]['apmat_usuario']." tenga Acceso al modulo ".$modulo);
+        $registrosNotificaciones->agregarRegistro($codigoSession, "Se permitio que el Usuario ".$listaUsuario[0]['nombre']." ".$listaUsuario[0]['appat']." ".$listaUsuario[0]['apmat']." tenga Acceso al modulo ".$modulo);
+        $registrosNotificaciones->agregarNotificacion("Se permitio que el Usuario ".$listaUsuario[0]['nombre']." ".$listaUsuario[0]['appat']." ".$listaUsuario[0]['apmat']." tenga Acceso al modulo ".$modulo);
     }else{
-        $registrosNotificaciones->agregarRegistro($codigoSession, "Se denego que el Usuario ".$listaUsuario[0]['nombre_usuario']." ".$listaUsuario[0]['appat_usuario']." ".$listaUsuario[0]['apmat_usuario']." tenga Acceso al modulo ".$modulo.". Modulo Bloqueado");
-        $registrosNotificaciones->agregarNotificacion("Se denego que el Usuario ".$listaUsuario[0]['nombre_usuario']." ".$listaUsuario[0]['appat_usuario']." ".$listaUsuario[0]['apmat_usuario']." tenga Acceso al modulo ".$modulo.". Modulo Bloqueado");
+        $registrosNotificaciones->agregarRegistro($codigoSession, "Se denego que el Usuario ".$listaUsuario[0]['nombre']." ".$listaUsuario[0]['appat']." ".$listaUsuario[0]['apmat']." tenga Acceso al modulo ".$modulo.". Modulo Bloqueado");
+        $registrosNotificaciones->agregarNotificacion("Se denego que el Usuario ".$listaUsuario[0]['nombre']." ".$listaUsuario[0]['appat']." ".$listaUsuario[0]['apmat']." tenga Acceso al modulo ".$modulo.". Modulo Bloqueado");
     }
     
     $data = ['resp' => $resp];
