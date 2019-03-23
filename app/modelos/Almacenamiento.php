@@ -11,6 +11,11 @@ class Almacenamiento{
 		return $this->db->insert($sql, $datos);
 	}
 
+	public function HistorialClienteEquipaje($datos){
+		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio, detalle_final, fecha_final, hora_final, usuario_final FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and almacenamiento.cod_cliente = ?;";
+		return $this->db->select($sql, $datos);
+	}
+
 	public function listaTarjetaOcupada($datos){
 		$sql = "SELECT almacenamiento.codigo, cod_cliente, cod_tarjeta, imagen_uno, imagen_dos, imagen_tres, pago_anticipado, costo, costo_total, detalle_inicio, fecha_inicio, hora_inicio, usuario_inicio FROM almacenamiento, cliente WHERE almacenamiento.cod_cliente = cliente.codigo and fecha_final IS NULL;";
 		return $this->db->select($sql, $datos);

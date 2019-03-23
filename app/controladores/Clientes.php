@@ -13,6 +13,9 @@ if (isset($_POST['action'])) {
         case 'listaCliente' :
             listaCliente();
             break;
+        case 'HistorialClienteEquipaje' :
+            HistorialClienteEquipaje();
+            break;
         case 'listaClienteBusqueda' :
             listaClienteBusqueda();
             break;
@@ -78,6 +81,14 @@ function agregarCliente(){
 
     $data = ['resp' => $resp];
     echo json_encode($data);
+}
+
+function HistorialClienteEquipaje(){
+    $codigo = $_POST['codigo'];
+    $datos = array($codigo);
+    $modelo = modelo('Almacenamiento');
+    $lista = $modelo->HistorialClienteEquipaje($datos);
+    echo json_encode($lista);
 }
 
 function listaCliente(){
