@@ -28,6 +28,9 @@ if (isset($_POST['action'])) {
         case 'actualizarImagen' :
             actualizarImagen();
             break;
+        case 'listaUsuario' :
+            listaUsuario();
+            break;
 
 
         case 'listaUsuarioSinCargo' :
@@ -278,6 +281,12 @@ function actualizarImagen(){
     echo json_encode($data);
 }
 
+function listaUsuario(){
+    $datos = array();
+    $modelo = modelo('Usuario');
+    $lista = $modelo->listaUsuarios($datos);
+    echo json_encode($lista);
+}
 
 
 

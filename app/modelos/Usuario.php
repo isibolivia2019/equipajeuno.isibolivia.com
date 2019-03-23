@@ -41,6 +41,12 @@ class Usuario{
 		return $this->db->update($sql, $datos);
 	}
 
+	public function listaUsuarios($datos){
+		$sql = "SELECT cod_usuario, nombre, appat, apmat, ci, ci_exp, genero, fec_nac,direccion, telefono, nombre_ref, telefono_ref, tipo_ref, email, pass, imagen, estado FROM usuario;";
+		return $this->db->select($sql, $datos);
+	}
+	
+
 
 
 	
@@ -59,10 +65,7 @@ class Usuario{
 		return $this->db->select($sql, $datos);
 	}
 
-	public function listaUsuarios($datos){
-		$sql = "SELECT cod_usuario, nombre, appat, apmat, ci, ci_exp, genero, fec_nac,direccion, telefono, nombre_ref, telefono_ref, tipo_ref, email, pass, imagen, estado FROM usuario;";
-		return $this->db->select($sql, $datos);
-	}
+	
 
 	
 
