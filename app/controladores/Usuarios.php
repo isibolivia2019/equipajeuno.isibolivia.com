@@ -130,7 +130,7 @@ function listaRegistroUsuarioBusqueda(){
     $buscar = $_POST['buscar'];
     $datos = array($codigo);
     $modelo = modelo('RegistroNotificacion');
-    $lista = $modelo->listaRegistroUsuarioBusqueda($datos);
+    $lista = $modelo->listaRegistroUsuarioBusqueda($datos, $buscar);
     echo json_encode($lista);
 }
 
