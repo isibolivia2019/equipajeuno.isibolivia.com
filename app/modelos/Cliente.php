@@ -20,6 +20,11 @@ class Cliente{
 		$sql = "SELECT codigo, nombre, appat, apmat, ci, ci_exp, celular, email FROM cliente;";
 		return $this->db->select($sql, $datos);
 	}
+
+	public function listaClienteBusqueda($datos, $palabra){
+		$sql = "SELECT codigo, nombre, appat, apmat, ci, ci_exp, celular, email FROM cliente WHERE nombre like '%".$palabra."%' or apmat like '%".$palabra."%' or appat like '%".$palabra."%' or ci like '%".$palabra."%' or celular like '%".$palabra."%' or email like '%".$palabra."%';";
+		return $this->db->select($sql, $datos);
+	}
     
   public function agregarCliente($datos){
 		$sql = "INSERT INTO cliente(nombre, appat, apmat, ci, ci_exp, celular, email, cod_usuario, fecha, hora) VALUES(?,?,?,?,?,?,?,?,?,?);";

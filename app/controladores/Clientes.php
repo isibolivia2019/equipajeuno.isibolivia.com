@@ -84,6 +84,14 @@ function listaCliente(){
     echo json_encode($lista);
 }
 
+function listaClienteBusqueda(){
+    $buscar = $_POST['buscar'];
+    $datos = array();
+    $modelo = modelo('Cliente');
+    $lista = $modelo->listaClienteBusqueda($datos, $buscar);
+    echo json_encode($lista);
+}
+
 function clienteEspecifico(){
     $cliente = $_POST['cliente'];
     $datos = array($cliente);
