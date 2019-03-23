@@ -198,6 +198,7 @@ function asignarUsuarioSucursal(){
 }
 
 function actualizarAccesoModulo(){
+    $codigoSession = $_POST['codigoSession'];
     $usuario = $_POST['usuario'];
     $estado = $_POST['estado'];
     $modulo = $_POST['modulo'];
@@ -224,10 +225,10 @@ function actualizarAccesoModulo(){
     $listaUsuario = $modelo->usuarioEspecifico($datos);
 
     if($estado){
-        $registrosNotificaciones->agregarRegistro($_SESSION['codigo'], "Se permitio que el Usuario ".$listaUsuario[0]['nombre_usuario']." ".$listaUsuario[0]['appat_usuario']." ".$listaUsuario[0]['apmat_usuario']." tenga Acceso al modulo ".$modulo);
+        $registrosNotificaciones->agregarRegistro($codigoSession, "Se permitio que el Usuario ".$listaUsuario[0]['nombre_usuario']." ".$listaUsuario[0]['appat_usuario']." ".$listaUsuario[0]['apmat_usuario']." tenga Acceso al modulo ".$modulo);
         $registrosNotificaciones->agregarNotificacion("Se permitio que el Usuario ".$listaUsuario[0]['nombre_usuario']." ".$listaUsuario[0]['appat_usuario']." ".$listaUsuario[0]['apmat_usuario']." tenga Acceso al modulo ".$modulo);
     }else{
-        $registrosNotificaciones->agregarRegistro($_SESSION['codigo'], "Se denego que el Usuario ".$listaUsuario[0]['nombre_usuario']." ".$listaUsuario[0]['appat_usuario']." ".$listaUsuario[0]['apmat_usuario']." tenga Acceso al modulo ".$modulo.". Modulo Bloqueado");
+        $registrosNotificaciones->agregarRegistro($codigoSession, "Se denego que el Usuario ".$listaUsuario[0]['nombre_usuario']." ".$listaUsuario[0]['appat_usuario']." ".$listaUsuario[0]['apmat_usuario']." tenga Acceso al modulo ".$modulo.". Modulo Bloqueado");
         $registrosNotificaciones->agregarNotificacion("Se denego que el Usuario ".$listaUsuario[0]['nombre_usuario']." ".$listaUsuario[0]['appat_usuario']." ".$listaUsuario[0]['apmat_usuario']." tenga Acceso al modulo ".$modulo.". Modulo Bloqueado");
     }
     
