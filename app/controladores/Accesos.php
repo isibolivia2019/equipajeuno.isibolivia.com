@@ -96,9 +96,7 @@ function listaAccesoModulos(){
     $datos = array($usuario);
     $modelo = modelo('Acceso');
     $lista = $modelo->listaAccesoModulos($datos);
-    $data = array();
-    $data = ['data' => $lista];
-    echo json_encode($data);
+    echo json_encode($lista);
 }
 
 function listaAccesosSucursalesCodigo(){
