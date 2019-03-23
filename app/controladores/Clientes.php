@@ -13,6 +13,9 @@ if (isset($_POST['action'])) {
         case 'listaCliente' :
             listaCliente();
             break;
+        case 'listaClienteBusqueda' :
+            listaClienteBusqueda();
+            break;
         case 'clienteEspecifico' :
             clienteEspecifico();
             break;
