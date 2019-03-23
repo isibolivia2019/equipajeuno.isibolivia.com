@@ -88,6 +88,21 @@ function HistorialClienteEquipaje(){
     $datos = array($codigo);
     $modelo = modelo('Almacenamiento');
     $lista = $modelo->HistorialClienteEquipaje($datos);
+
+    $datos = array();
+    $modelo = modelo('Usuario');
+    $listaUsuario = $modelo->listaUsuarios($datos);
+
+    for($i = 0 ; $i < sizeof($lista) ; $i++){
+        for($j = 0 ; $j < sizeof($listaUsuario) ; $j++){
+            if($listaUsuario[$j]["cod_usuario"] == $lista[$i]["usuario_inicio"]){
+                $lista[$i]["usuario_inicio"] = $listaUsuario[$j]["nombre"] + $listaUsuario[$j]["appat"] + $listaUsuario[$j]["apmat"];
+            }
+            if($listaUsuario[$j]["cod_usuario"] == $lista[$i]["usuario_final"]){
+                $lista[$i]["usuario_final"] = $listaUsuario[$j]["nombre"] + $listaUsuario[$j]["appat"] + $listaUsuario[$j]["apmat"];
+            }
+        }
+    }
     echo json_encode($lista);
 }
 

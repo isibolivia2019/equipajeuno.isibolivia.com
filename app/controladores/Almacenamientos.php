@@ -22,6 +22,9 @@ if (isset($_POST['action'])) {
         case 'almacenamientoEntregaEspecifico' :
             almacenamientoEntregaEspecifico();
             break;
+        case 'almacenamientoFinalEspecifico' :
+            almacenamientoFinalEspecifico();
+            break;
         case 'devolverEquipaje' :
             devolverEquipaje();
             break;
@@ -93,6 +96,14 @@ function devolverEquipaje(){
 
     $data = ['resp' => $resp];
     echo json_encode($data);
+}
+
+function almacenamientoFinalEspecifico(){
+    $codigo = $_POST['codigo'];
+    $datos = array($codigo);
+    $modelo = modelo('Almacenamiento');
+    $lista = $modelo->almacenamientoFinalEspecifico($datos);
+    echo json_encode($lista);
 }
 
 function listaTarjetaLibre(){
